@@ -476,15 +476,6 @@ static NSString * const kTableViewPanState = @"state";
     }
 }
 
-- (void)hideUtilityButtonsNoDelegateWithAnimated:(BOOL)animated
-{
-  if (_cellState != kCellStateCenter)
-  {
-    _isHideWithNoDelegate = YES;
-    [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateCenter] animated:animated];
-  }
-}
-
 - (void)showLeftUtilityButtonsAnimated:(BOOL)animated {
     if (_cellState != kCellStateLeft)
     {
@@ -500,8 +491,6 @@ static NSString * const kTableViewPanState = @"state";
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated {
     if (_cellState != kCellStateRight)
     {
-      _isHideWithNoDelegate = NO;
-
         [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateRight] animated:animated];
         
         if ([self.delegate respondsToSelector:@selector(swipeableTableViewCell:scrollingToState:)])
@@ -511,28 +500,10 @@ static NSString * const kTableViewPanState = @"state";
     }
 }
 
-- (void)showLeftUtilityButtonsNoDelegateWithAnimated:(BOOL)animated
-{
-  if (_cellState != kCellStateLeft)
-  {
-    [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateLeft]
-                                 animated:animated];
-  }
-}
-
-- (void)showRightUtilityButtonsNoDelegateWithAnimated:(BOOL)animated
-{
-  if (_cellState != kCellStateRight)
-  {
-    _isHideWithNoDelegate = NO;
-    [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateRight]
-                                 animated:animated];
-  }
-}
-
 - (BOOL)isUtilityButtonsHidden {
     return _cellState == kCellStateCenter;
 }
+
 
 #pragma mark - Geometry helpers
 
