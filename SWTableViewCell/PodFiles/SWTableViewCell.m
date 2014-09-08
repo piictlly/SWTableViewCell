@@ -480,6 +480,7 @@ static NSString * const kTableViewPanState = @"state";
 {
   if (_cellState != kCellStateCenter)
   {
+    _isHideWithNoDelegate = YES;
     [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateCenter] animated:animated];
   }
 }
