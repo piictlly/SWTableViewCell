@@ -500,6 +500,8 @@ static NSString * const kTableViewPanState = @"state";
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated {
     if (_cellState != kCellStateRight)
     {
+      _isHideWithNoDelegate = NO;
+
         [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateRight] animated:animated];
         
         if ([self.delegate respondsToSelector:@selector(swipeableTableViewCell:scrollingToState:)])
@@ -522,6 +524,7 @@ static NSString * const kTableViewPanState = @"state";
 {
   if (_cellState != kCellStateRight)
   {
+    _isHideWithNoDelegate = NO;
     [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateRight]
                                  animated:animated];
   }
