@@ -476,6 +476,14 @@ static NSString * const kTableViewPanState = @"state";
     }
 }
 
+- (void)hideUtilityButtonsNoDelegateWithAnimated:(BOOL)animated
+{
+  if (_cellState != kCellStateCenter)
+  {
+    [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateCenter] animated:animated];
+  }
+}
+
 - (void)showLeftUtilityButtonsAnimated:(BOOL)animated {
     if (_cellState != kCellStateLeft)
     {

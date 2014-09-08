@@ -50,6 +50,7 @@ typedef NS_ENUM(NSInteger, SWCellState)
 // show extra buttons and do not call delegate
 - (void)showLeftUtilityButtonsNoDelegateWithAnimated:(BOOL)animated;
 - (void)showRightUtilityButtonsNoDelegateWithAnimated:(BOOL)animated;
+- (void)hideUtilityButtonsNoDelegateWithAnimated:(BOOL)animated;
 
 - (BOOL)isUtilityButtonsHidden;
 
