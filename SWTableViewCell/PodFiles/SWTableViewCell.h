@@ -47,6 +47,10 @@ typedef NS_ENUM(NSInteger, SWCellState)
 - (void)showLeftUtilityButtonsAnimated:(BOOL)animated;
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated;
 
+// show extra buttons and do not call delegate
+- (void)showLeftUtilityButtonsNoDelegateWithAnimated:(BOOL)animated;
+- (void)showRightUtilityButtonsNoDelegateWithAnimated:(BOOL)animated;
+
 - (BOOL)isUtilityButtonsHidden;
 
 @end

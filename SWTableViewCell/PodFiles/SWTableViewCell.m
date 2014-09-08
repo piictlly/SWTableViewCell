@@ -500,10 +500,27 @@ static NSString * const kTableViewPanState = @"state";
     }
 }
 
+- (void)showLeftUtilityButtonsNoDelegateWithAnimated:(BOOL)animated
+{
+  if (_cellState != kCellStateLeft)
+  {
+    [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateLeft]
+                                 animated:animated];
+  }
+}
+
+- (void)showRightUtilityButtonsNoDelegateWithAnimated:(BOOL)animated
+{
+  if (_cellState != kCellStateRight)
+  {
+    [self.cellScrollView setContentOffset:[self contentOffsetForCellState:kCellStateRight]
+                                 animated:animated];
+  }
+}
+
 - (BOOL)isUtilityButtonsHidden {
     return _cellState == kCellStateCenter;
 }
-
 
 #pragma mark - Geometry helpers
 
